@@ -1,6 +1,6 @@
 # Auto Ivan Discord Bot
 
-Este es un bot de Discord desarrollado en Python para responder preguntas en un servidor específico.
+Este es un bot de Discord desarrollado en Python para responder como si fuera Iván. Todo el código está en español porque el bot no tiene sentido en otro idioma
 
 ## Instalación
 
