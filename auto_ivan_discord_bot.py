@@ -78,7 +78,7 @@ async def on_message(message):
         await message.channel.send(response, reference=message, mention_author=True)
 
     # Comprueba si acaba en echo y la palabra no es satisfecho
-    if (last_word.endswith("echo") or last_word.endswith("exo")):
+    if (last_word.endswith("echo") or last_word.endswith("exo") and last_word != "hecho"):
         # Responder al mensaje
         response = "La paja que me has hecho"
         await message.channel.send(response, reference=message, mention_author=True)
