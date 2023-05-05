@@ -25,8 +25,14 @@ async def on_ready():
 # Evento que responde con rimas
 @bot.event
 async def on_message(message):
-    # Obtener la última palabra del mensaje
-    last_word = message.content.split()[-1].lower()
+
+    # Obtener la última palabra del mensaje comprobando que el mensaje sea de texto
+    last_word = ""
+    if message.content:
+        last_word = message.content.split()[-1].lower()
+    else:
+        return
+    
     # Le quita todas los símbolos de exclamación y de interrogación
     caracteres_a_eliminar = "!?."
     last_word = last_word.rstrip(caracteres_a_eliminar)
