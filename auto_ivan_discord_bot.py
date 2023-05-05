@@ -71,6 +71,12 @@ async def on_message(message):
         response = "Me la agarras con la mano"
         await message.channel.send(response, reference=message, mention_author=True)
 
+    # Comprueba si acaba en satisfacido
+    if (last_word.endswith("satisfacido")):
+        # Responder al mensaje
+        response = "... :eyes:  ..."
+        await message.channel.send(response, reference=message, mention_author=True)
+
     # Comprueba si acaba en echo y la palabra no es satisfecho
     if (last_word.endswith("echo") or last_word.endswith("exo")):
         # Responder al mensaje
