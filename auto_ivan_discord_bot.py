@@ -1,8 +1,14 @@
 import discord
 import re
+import os
 from discord.ext import commands
+from dotenv import load_dotenv
 
-token = "MTEwMzMxOTk2NTAzMDk1MzA2MA.GBbiqh.1QXO7BCU1Ntn8vBNmOXOd8d2iY09hiNqPJ3HE4"
+# Carga el .env
+load_dotenv()
+
+# Carga el token de .env
+token = os.environ.get('TOKEN')
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -33,7 +39,7 @@ async def on_message(message):
     if re.match(r".*[0-9]+([\+\-\*/][0-9]+)+$", last_word):
         # Calcular el resultado de la operación
         result = eval(last_word)
-        # Comprobar si el resultado es 5
+        # Comprobar si el resultado es acaba en 5 pero no en 15
         if result % 10 == 5 and result % 100 != 15:
             # Mencionar al autor del mensaje en la respuesta
             response = "Por el culo te la hinco"
@@ -41,7 +47,7 @@ async def on_message(message):
             await message.channel.send(response, reference=message, mention_author=True)
 
     # Comprueba si acaba en inco y la palabra no es hinco
-    if ((last_word.endswith("inco") or last_word.endswith("5")) != last_word.endswith(
+    if ((last_word.endswith("inco") or last_word.endswith("5") or last_word.endswith("ynco")) != last_word.endswith(
             "15")) and last_word != "hinco":
         # Responder al mensaje
         response = "Por el culo te la hinco"
@@ -63,6 +69,12 @@ async def on_message(message):
     if (last_word.endswith("ano")) and last_word != "mano":
         # Responder al mensaje
         response = "Me la agarras con la mano"
+        await message.channel.send(response, reference=message, mention_author=True)
+
+    # Comprueba si acaba en echo y la palabra no es satisfecho
+    if (last_word.endswith("echo") or last_word.endswith("exo")):
+        # Responder al mensaje
+        response = "La paja que me has hecho"
         await message.channel.send(response, reference=message, mention_author=True)
 
     # Comprueba si acaba en ao y la palabra no es colgao
