@@ -1,8 +1,12 @@
 import discord
 import re
 import os
+import logging
 from discord.ext import commands
 from dotenv import load_dotenv
+
+# Configura el registro de información
+logging.basicConfig(level=logging.INFO) 
 
 # Carga el .env
 load_dotenv()
@@ -51,6 +55,7 @@ async def on_message(message):
             response = "Por el culo te la hinco"
             # Enviar la respuesta citando al mensaje original
             await message.channel.send(response, reference=message, mention_author=True)
+            logging.info(f'Respondido a {message.author.name}:{message.author} en {message.guild.name}/{message.channel.name}: {response}')
 
     # Comprueba si acaba en inco y la palabra no es hinco
     if ((last_word.endswith("inco") or last_word.endswith("5") or last_word.endswith("ynco")) != last_word.endswith(
@@ -58,42 +63,50 @@ async def on_message(message):
         # Responder al mensaje
         response = "Por el culo te la hinco"
         await message.channel.send(response, reference=message, mention_author=True)
+        logging.info(f'Respondido a {message.author.name}:{message.author} en {message.guild.name}/{message.channel.name}: {response}')
 
     # Comprueba si acaba en ado y la palabra no es colgado
     if (last_word.endswith("ado") and last_word != "colgado"):
         # Responder al mensaje
         response = "El que tengo aquí colgado"
         await message.channel.send(response, reference=message, mention_author=True)
+        logging.info(f'Respondido a {message.author.name}:{message.author} en {message.guild.name}/{message.channel.name}: {response}')
+
 
     # Comprueba si acaba en ada y la palabra no es colgada
     if (last_word.endswith("ada")) and last_word != "colgada":
         # Responder al mensaje
         response = "La que tengo aquí colgada"
         await message.channel.send(response, reference=message, mention_author=True)
+        logging.info(f'Respondido a {message.author.name}:{message.author} en {message.guild.name}/{message.channel.name}: {response}')
 
     # Comprueba si acaba en ano y la palabra no es mano
     if (last_word.endswith("ano")) and last_word != "mano":
         # Responder al mensaje
         response = "Me la agarras con la mano"
         await message.channel.send(response, reference=message, mention_author=True)
+        logging.info(f'Respondido a {message.author.name}:{message.author} en {message.guild.name}/{message.channel.name}: {response}')
 
     # Comprueba si acaba en satisfacido
     if (last_word.endswith("satisfacido")):
         # Responder al mensaje
         response = "... :eyes:  ..."
         await message.channel.send(response, reference=message, mention_author=True)
+        logging.info(f'Respondido a {message.author.name}:{message.author} en {message.guild.name}/{message.channel.name}: {response}')
 
     # Comprueba si acaba en echo y la palabra no es satisfecho
     if ((last_word.endswith("echo") or last_word.endswith("exo")) and last_word != "hecho"):
         # Responder al mensaje
         response = "La paja que me has hecho"
         await message.channel.send(response, reference=message, mention_author=True)
+        logging.info(f'Respondido a {message.author.name}:{message.author} en {message.guild.name}/{message.channel.name}: {response}')
 
     # Comprueba si acaba en ao y la palabra no es colgao
     if (last_word.endswith("ao")) and last_word != "colgao":
         # Responder al mensaje
         response = "El que tengo aquí colgao"
         await message.channel.send(response, reference=message, mention_author=True)
+        logging.info(f'Respondido a {message.author.name}:{message.author} en {message.guild.name}/{message.channel.name}: {response}')
 
 
 bot.run(token)
