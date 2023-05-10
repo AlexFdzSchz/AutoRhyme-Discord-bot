@@ -1,0 +1,43 @@
+[
+    {
+        "triggers": ["ado"],
+        "ignore": "",
+        "answer": "El que tengo aquí colgado"
+    },
+    {
+        "triggers": ["ada"],
+        "ignore": "",
+        "answer": "La que tengo aquí colgada"
+    },
+    {
+        "triggers": ["ao"],
+        "ignore": "",
+        "answer": "El que tengo aquí colgao"
+    },
+    {
+        "triggers": ["echo", "exo", "etxo"],
+        "ignore": "",
+        "answer": "La paja que me has hecho"
+    },
+    {
+        "triggers": ["inco", "ynco", "5"],
+        "ignore": "15",
+        "answer": "Por el culo te la hinco"
+    },
+    {
+        "triggers": ["ano"],
+        "ignore": "",
+        "answer": "Me la agarras con la mano"
+    },
+    {
+        "triggers": ["13", "trece"],
+        "ignore": "",
+        "answer": "Agárramela que me crece"
+    },
+    {
+        "triggers": ["satisfacido"],
+        "ignore": "",
+        "answer": ":eyes:"
+    }
+    
+]
