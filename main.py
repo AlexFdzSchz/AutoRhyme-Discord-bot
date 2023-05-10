@@ -15,13 +15,12 @@ load_dotenv()
 # Load the token from .env
 token = os.environ.get('TOKEN')
 
+# Create a bot
 intents = discord.Intents.default()
 intents.message_content = True
-
-# Create a bot
 bot = commands.Bot(command_prefix='ai ', intents=intents)
 
-# load all the rhimes from rhimes.json
+# load all the rhymes from rhymes.json
 
 with open("rhymes.json", "r", encoding="utf-8") as rhymesjson:
     content = rhymesjson.read()
@@ -61,10 +60,10 @@ async def on_message(message):
     if message.author == bot.user:
         return
     
-    #Check if the last word rhimes with the rhimes in the json
+    #Check if the last word rhymes with the rhymes in the json
     for rhyme in rhymes:
         if rhyme.rhymeswith(last_word) or rhyme.resultrhymeswith(last_word):                
-        # Answer the message with the rhime
+        # Answer the message with the rhyme
             response = rhyme.answer
             await message.channel.send(response, reference=message, mention_author=True)
             logging.info(f'Answered to {message.author.name}:{message.author} in {message.guild.name}/{message.channel.name}: {response}')

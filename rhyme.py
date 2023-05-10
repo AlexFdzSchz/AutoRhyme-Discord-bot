@@ -20,7 +20,8 @@ class Rhyme:
                 if word.endswith(trigger):
                     result = True
         return result
-
+    
+    # Check if the word contains a mathematical operation whose result rhymes
     def resultrhymeswith(self, word) -> bool:
         result = False
         # Check if the word contains a mathematical operation
@@ -29,7 +30,7 @@ class Rhyme:
             operationresult = "" + str(eval(word))
             # Compare the result with all triggers and the ignore
             for trigger in self.triggers:
-                if operationresult.endswith(trigger) and not operationresult.endswith(self.ignore):
+                if operationresult.endswith(trigger) and not (self.ignore != "" and operationresult.endswith(self.ignore)):
                     result = True
         return result
 
